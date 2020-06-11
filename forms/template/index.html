@@ -42,7 +42,7 @@ input[type=submit]:hover {
   Once you submit the form, you will get a link that generates an email in your email app with the information below. </p>
   <br>
   <p> This is some information about this form, and why you are filling it out. <br>
-    <form id="myform" target="_blank" action="/results.html" method="post">
+    <form id="myform" target="_self" action="/results.html" method="post" onsubmit="myFunction()">
     <div class="block form-group">
     <label for="first_name">Name</label>
     <input type='text' name='first_name' id="first_name" required="required"/>
@@ -90,6 +90,7 @@ input[type=submit]:hover {
     </div>
     </form>
     <script>
+    myFunction(){
     var inputEmail= document.getElementById("email");
     localStorage.setItem("email", inputEmail.value);
     var inputName= document.getElementById("name");
@@ -100,6 +101,7 @@ input[type=submit]:hover {
     localStorage.setItem("body", inputBody.value);  
     var checkedBoxes = document.querySelectorAll('input[name=email]:checked');
     localStorage.setItem("emails", checkedBoxes.value);  
+    };
     </script>
   </body>
 </html>
