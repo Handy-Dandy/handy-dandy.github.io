@@ -6,5 +6,5 @@ The purpose of this site is to create custom tools that hopefully assist in vita
 
 This would be the first test tool
 
-<a href="template.html">Link</a>
+<a href="form/template/">Link</a>
 
