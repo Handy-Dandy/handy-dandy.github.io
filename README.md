@@ -6,5 +6,5 @@ The purpose of this site is to create custom tools that hopefully assist in vita
 
 This would be the first test tool
 
-[LINK](handy-dandy.github.io/template.html)
+<a href="template.html">Link</a>
 
