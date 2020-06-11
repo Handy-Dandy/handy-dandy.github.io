@@ -8,3 +8,6 @@ This would be the first test tool
 
 <a href="/forms/template/index.html">Link</a>
 
+This goes to the stolen format
+
+<a href="/forms/format_copy/index.html">Link</a>
