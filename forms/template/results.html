@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<head>
+<script>
+    var name=localStorage.getItem("name");
+    var name=localStorage.getItem("email");
+    var name=localStorage.getItem("subject");
+    var name=localStorage.getItem("body");
+    var name=localStorage.getItem("emails");
+    var strLink = "2.html&Key=" + scrt_var;
+    document.getElementById("superlink").setAttribute("href",strLink);
+</script>
+</head>
+<body class="w3-content" style="max-width:1300px">
+
+<!-- First Grid: Logo & About -->
+<div class="w3-row">
+  <div class="w3-half w3-blue-grey w3-container" style="height:700px">
+    <div class="w3-padding-64 w3-center">
+      <h1>Your Mailto Link</h1>
+      <p> Use this link to send the email!</p>
+      <!-- <img src="/w3images/avatar3.png" class="w3-margin w3-circle" alt="Person" style="width:50%"> -->
+      <div class="w3-left-align w3-padding-large">
+      <p><a id="superlink" target="_blank">SEND THE EMAIL</a></p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-black w3-padding-16">
+  <p>Powered by <a href="https://handy-dandy.github.io" target="_blank">handy-dandy</a></p>
+</footer>
+
+</body>
+</html>
