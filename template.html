@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+  </head>
+  <body>
+  <p> This form will help you write a custom email to your local officials.<br>
+  Once you submit the form, you will get a link that generates an email in your email app with the information below. </p>
+  <br>
+  <p> This is some information about this form, and why you are filling it out. <br>
+    <form id="myform">
+    <div class="block form-group">
+    <label for="first_name">Name</label>
+    <input type='text' name='first_name' id="first_name" required="required"/>
+    </div>
+    
+    <div class="block form-group">
+    <label for="last_name">Zip Code</label>
+    <input type='text' name='last_name' id="last_name" required="required"/>
+    </div>
+    
+    <div class="block form-group">
+    <label for="email">Your Email</label>
+    <input type='text' name='email' id="email" required="required"/>
+    </div>
+    
+    <div class="block form-group">
+    <label for="subject">Subject</label>
+    <p> Having a unique subject makes it clear that a real person wrote this email! </p>
+    <input type='text' name='subject' id="subject" required="required"/>
+    </div>
+    
+    <div class="block form-group">
+    <label for="body">Body</label>
+    <p> This doesn't have to be long! Just say what is important to you, and what you want them to do.<br>
+    Some facts are below for you to reference, but the power comes from it being your voice!</p>
+    <br><p>They spend too much money!</p>
+    <br><p>We should do better things!</p>
+    <br><p>They need to act immediately!</p>
+    <textarea rows = "5" cols = "60" name = "description">
+    Write your Message Below!
+    </textarea><br>
+    </div>
+    
+
+    
+    <div class="block form-group">
+    <p>Please check which people you would like to send your email to! </p>
+    <input type="checkbox" id="email1" name="email1" value="sam.honeysuckle@city.net">
+    <label for="email1"> Sam Honeysuckle</label><br>
+    <input type="checkbox" id="email2" name="email2" value="burt.bumbleton@city.net">
+    <label for="email2"> Burt Bumbleton</label><br>
+    <input type="checkbox" id="email3" name="email3" value="gross.madman@city.net">
+    <label for="email3"> Gross Madman</label><br>
+    </div>
+    
+    <div class="block">
+    <button type="submit" class="action">Submit</button>
+    </div>
+    </form>
+    <script>
+    document.querySelector("#myform").addEventListener("submit", 
+    function(e)
+    {
+    e.preventDefault();    //stop form from submitting
+    }
+    );
+    </script>
+  </body>
+</html>
