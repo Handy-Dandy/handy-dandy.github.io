@@ -98,27 +98,30 @@ input[type=submit]:hover {
 <script>
   document.getElementById("send").addEventListener("click", function(event){
   event.preventDefault()
-  function mail(form) {
-    // var ts = "TEST SUCCESS";
+  function mail() {
+    var ts = "TEST SUCCESS";
     document.getElementById('test').innerHTML = ts;
-    var name = form.name.value;
-    var zipcode = form.zipcode.value;
-    var subject = form.subject.value;
-    var body = form.body.value;
-    for (i = 0; i < form.city.length; i++) {
-        if (form.emails[i].checked)
-            emails += "," + form.emails[i].value;
+    var name = document.getElementsByName('name').value;
+    var zipcode = document.getElementsByName('zipcode').value;
+    var subject = document.getElementsByName('subject').value;
+    var body = document.getElementsByName('body').value;
+    var emailraw = document.getElementsByName('emails').values;
+    for (i = 0; i < emailraw.length; i++) {
+        if (emailraw[i].checked)
+            emails += "," + emailraw[i].value;
     };
     var ending = `%0D%0ARegards,%0D%0A${name}%0D%0AZipcode:${zipcode}`
     body+=ending;
     var str = `mailto:${emails}?subject=${subject}&body=${body}`;
-    link = str.replace(" ","%20");
-    document.getElementById('send').href = link;
+    var link = str.replace(" ","%20");
+    // var link = "end test done";
     document.getElementById('test').innerHTML = link;
+    document.getElementById('send').href = link;
+    
 
     }
-  mail('form')
-  window.location=this.href
+  mail()
+  // window.location=this.href
   });
 </script>
 </body>
