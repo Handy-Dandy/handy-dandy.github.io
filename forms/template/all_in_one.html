@@ -60,7 +60,7 @@ input[type=submit]:hover {
     link = str.replace(" ","%20");
     document.getElementById('send').href = link;
     document.getElementById('test').innerHTML = link;
-    return link;
+
     }
 </script>
 </head>
@@ -119,7 +119,8 @@ input[type=submit]:hover {
 <script> 
   document.getElementById("send").addEventListener("click", function(event){
   event.preventDefault()
-  window.location=mail(form)
+  mail(form)
+  // window.location=this.href
   });
 </script>
 </body>
