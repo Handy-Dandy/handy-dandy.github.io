@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+.label_head {
+  font-size: 120% ;
+  font-weight: bold;
+  padding-bottom: 15px;
+}
+
+input[type=submit] {
+  background-color: #4CAF50;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+}
+</style>
+<script>
+  function mail(form) {
+    // var ts = "TEST SUCCESS";
+    document.getElementById('test').innerHTML = ts;
+    var name = form.name.value;
+    var zipcode = form.zipcode.value;
+    var subject = form.subject.value;
+    var body = form.body.value;
+    for (i = 0; i < form.city.length; i++) {
+        if (form.emails[i].checked)
+            emails += "," + form.emails[i].value;
+    };
+    var ending = `%0D%0ARegards,%0D%0A${name}%0D%0AZipcode:${zipcode}`
+    body+=ending;
+    var str = `mailto:${emails}?subject=${subject}&body=${body}`;
+    link = str.replace(" ","%20");
+    document.getElementById('send').href = link;
+    document.getElementById('test').innerHTML = link;
+
+    }
+</script>
+</head>
+<body>
+<form id="form">
+  <label class="label_head">Name</label>
+  <div class="row margin-bottom-20">
+    <div class="col-md-6 col-md-offset-0">
+      <input class="form-control" name="name" type="text">
+    </div>
+  </div>
+
+  <label class="label_head">Zip Code <span class="color-red">*</span></label>
+  <div class="row margin-bottom-20">
+    <div class="col-md-6 col-md-offset-0">
+      <input class="form-control" name="zipcode" type="text">
+    </div>
+  </div>
+
+  <label class="label_head">Recipients of Email</label><br />
+  <div class="checkbox-inline">
+    <label><input type="checkbox" name="emails" value="email1@dot.com" checked>Person One</label>
+  </div>
+  <div class="checkbox-inline">
+    <label><input type="checkbox" name="emails" value="email2@dot.com" checked>Person Two</label>
+  </div>
+  <div class="checkbox-inline">
+    <label><input type="checkbox" name="emails" value="email3@dot.com" checked>Person Three</label>
+  </div>
+  <div class="checkbox-inline">
+    <label><input type="checkbox" name="emails" value="email4@dot.com" checked>Person Four</label>
+  </div>
+  <div class="checkbox-inline">
+    <label><input type="checkbox" name="emails" value="email5@dot.com" checked>Person Five</label>
+  </div>
+<br>
+  <label class="label_head">Email Subject</label>
+  <p> Try and boil your message down to one line here. It is important for this to be in your voice! </p>
+  <div class="row margin-bottom-20">
+    <div class="col-md-3 col-md-offset-0">
+      <input class="form-control w8em" name="subject" type="text">
+    </div>
+  </div>
+
+  <div class="row margin-bottom-20">
+    <div class="col-md-8 col-md-offset-0">
+      <p class="label_head">Message</p>
+      <p >Even if this is only a few sentances, that is okay! Just tell them what you want them to do. These are OUR public officials!</p>
+      <label><textarea rows="4" placeholder="......" name="body" class="form-control" onchange="mail(this)"></textarea>
+    </div>
+  </div>
+
+  <button><a id="send" class="btn btn-primary">Create Message</a></button>
+  <p id="test">nothing</p>
+</form>
+<script> 
+  document.getElementById("send").addEventListener("click", function(event){
+  event.preventDefault()
+  // mail(form)
+  // window.location=this.href
+  });
+</script>
+</body>
