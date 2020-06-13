@@ -42,27 +42,6 @@ input[type=submit]:hover {
   padding: 20px;
 }
 </style>
-<script>
-  function mail(form) {
-    // var ts = "TEST SUCCESS";
-    document.getElementById('test').innerHTML = ts;
-    var name = form.name.value;
-    var zipcode = form.zipcode.value;
-    var subject = form.subject.value;
-    var body = form.body.value;
-    for (i = 0; i < form.city.length; i++) {
-        if (form.emails[i].checked)
-            emails += "," + form.emails[i].value;
-    };
-    var ending = `%0D%0ARegards,%0D%0A${name}%0D%0AZipcode:${zipcode}`
-    body+=ending;
-    var str = `mailto:${emails}?subject=${subject}&body=${body}`;
-    link = str.replace(" ","%20");
-    document.getElementById('send').href = link;
-    document.getElementById('test').innerHTML = link;
-
-    }
-</script>
 </head>
 <body>
 <form id="form">
@@ -116,11 +95,30 @@ input[type=submit]:hover {
   <button><a id="send" class="btn btn-primary">Create Message</a></button>
   <p id="test">nothing</p>
 </form>
-<script> 
+<script>
   document.getElementById("send").addEventListener("click", function(event){
   event.preventDefault()
-  mail(form)
-  // window.location=this.href
+  function mail(form) {
+    // var ts = "TEST SUCCESS";
+    document.getElementById('test').innerHTML = ts;
+    var name = form.name.value;
+    var zipcode = form.zipcode.value;
+    var subject = form.subject.value;
+    var body = form.body.value;
+    for (i = 0; i < form.city.length; i++) {
+        if (form.emails[i].checked)
+            emails += "," + form.emails[i].value;
+    };
+    var ending = `%0D%0ARegards,%0D%0A${name}%0D%0AZipcode:${zipcode}`
+    body+=ending;
+    var str = `mailto:${emails}?subject=${subject}&body=${body}`;
+    link = str.replace(" ","%20");
+    document.getElementById('send').href = link;
+    document.getElementById('test').innerHTML = link;
+
+    }
+  mail('form')
+  window.location=this.href
   });
 </script>
 </body>
