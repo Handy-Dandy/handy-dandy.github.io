@@ -148,7 +148,8 @@
     var link = str.replace(" ","%20");
 
     // var link = "end test done";
-    link=link.replace(/%0D%0A/g,"<br>");
+    if (navigator.appVersion.indexOf("Android")!=-1) link=link.replace(/%0D%0A/g,"<br>");
+
     document.getElementById('test').innerHTML = link;
     document.getElementById('send-and').href = link;
     }
