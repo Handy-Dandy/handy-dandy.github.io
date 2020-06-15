@@ -126,7 +126,7 @@
   });
   document.getElementById("send-and").addEventListener("click", function(event){
   event.preventDefault()
-  function mail() {
+  function mailAnd() {
     var ts = "TEST SUCCESS";
     document.getElementById('test').innerHTML = ts;
     var name = document.getElementsByName('name').item(0).value;
@@ -150,9 +150,9 @@
     // var link = "end test done";
     link=link.replace(/%0D%0A/g,"<br>");
     document.getElementById('test').innerHTML = link;
-    document.getElementById('send').href = link;
+    document.getElementById('send-and').href = link;
     }
-  mail()
+  mailAnd()
   window.location=this.href
   });
 </script>
