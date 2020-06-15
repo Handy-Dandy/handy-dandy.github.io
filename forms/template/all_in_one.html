@@ -1,50 +1,36 @@
 <!DOCTYPE html>
 <html>
-<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <style>
-body {font-family: Arial, Helvetica, sans-serif;}
-* {box-sizing: border-box;}
-
-input[type=text], select, textarea {
-  width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
-  margin-top: 6px;
-  margin-bottom: 16px;
-  resize: vertical;
-}
-
-.label_head {
-  font-size: 120% ;
-  font-weight: bold;
-  padding-bottom: 15px;
-}
-
-input[type=submit] {
-  background-color: #4CAF50;
-  color: white;
-  padding: 12px 20px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-input[type=submit]:hover {
-  background-color: #45a049;
-}
-
-.container {
-  border-radius: 5px;
-  background-color: #f2f2f2;
-  padding: 20px;
+.row {
+  display: flex; /* equal height of the children */
 }
 </style>
-</head>
-<body>
-<form id="form">
+<body class="w3-content" style="max-width:1300px">
+
+<!-- Second Grid: Work & Resume -->
+<div class="row">
+  <div class="w3-half w3-indigo w3-container" style="min-height:800px">
+    <div class="w3-padding-64 w3-center">
+      <h2>The Specific Issue</h2>
+      <p>Here is some info about this issue. Please use this to help you decide what you want to say in your email!</p>
+      <div class="w3-container w3-responsive">
+		<ul>
+        	<li>This thing is really bad. Here is a number $100,000.</li>
+        	<li>If we don't stop them now bad things happen!</li>
+            <li>lorem ipsum dolorum magnus ipsetum kator silcitis</li>
+            <li>lorem ipsum dolorum magnus ipsetum kator silcitis</li>
+            <li>lorem ipsum dolorum magnus ipsetum kator silcitis</li>
+      </div>
+    </div>
+  </div>
+  <div class="w3-half w3-teal w3-container" style="min-height:800px">
+    <div class="w3-padding-64 w3-padding-large">
+      <p class="w3-opacity">START YOUR EMAIL!</p>
+      <form id="form">
   <label class="label_head">Name</label>
   <div class="row margin-bottom-20">
     <div class="col-md-6 col-md-offset-0">
@@ -52,7 +38,7 @@ input[type=submit]:hover {
     </div>
   </div>
 
-  <label class="label_head">Zip Code <span class="color-red">*</span></label>
+  <label class="label_head">Zip Code</label>
   <div class="row margin-bottom-20">
     <div class="col-md-6 col-md-offset-0">
       <input class="form-control" name="zipcode" type="text">
@@ -61,19 +47,19 @@ input[type=submit]:hover {
 
   <label class="label_head">Recipients of Email</label><br />
   <div class="checkbox-inline">
-    <label><input type="checkbox" name="emails" value="email1@dot.com" checked>Person One</label>
+    <label><input type="checkbox" name="emails" value="email1@dot.com" checked>Person One: (email1@dot.com)</label>
   </div>
   <div class="checkbox-inline">
-    <label><input type="checkbox" name="emails" value="email2@dot.com" checked>Person Two</label>
+    <label><input type="checkbox" name="emails" value="email2@dot.com" checked>Person Two: (email2@dot.com)</label>
   </div>
   <div class="checkbox-inline">
-    <label><input type="checkbox" name="emails" value="email3@dot.com" checked>Person Three</label>
+    <label><input type="checkbox" name="emails" value="email3@dot.com" checked>Person Three: (email3@dot.com)</label>
   </div>
   <div class="checkbox-inline">
-    <label><input type="checkbox" name="emails" value="email4@dot.com" checked>Person Four</label>
+    <label><input type="checkbox" name="emails" value="email4@dot.com" checked>Person Four: (email4@dot.com)</label>
   </div>
   <div class="checkbox-inline">
-    <label><input type="checkbox" name="emails" value="email5@dot.com" checked>Person Five</label>
+    <label><input type="checkbox" name="emails" value="email5@dot.com" checked>Person Five: (email5@dot.com)</label>
   </div>
 <br>
   <label class="label_head">Email Subject</label>
@@ -91,10 +77,22 @@ input[type=submit]:hover {
       <label><textarea rows="4" placeholder="......" name="body" class="form-control" onchange="mail(this)"></textarea>
     </div>
   </div>
-
-  <button><a id="send" class="btn btn-primary">Create Message</a></button>
+	<div class="btn-group">
+  <button><a id="send" class="btn btn-primary">Make Email</a></button>
+    <button><a id="send-and" class="btn btn-primary">Make Email (Android)</a></button>
+    </div>
   <p id="test">nothing</p>
 </form>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-black w3-padding-16">
+  <p>Powered by <a href="https://handy-dandy.github.io" target="_blank">handy-dandy</a></p>
+  <p>CSS by W3</p>
+</footer>
 <script>
   document.getElementById("send").addEventListener("click", function(event){
   event.preventDefault()
@@ -122,11 +120,41 @@ input[type=submit]:hover {
     // var link = "end test done";
     document.getElementById('test').innerHTML = link;
     document.getElementById('send').href = link;
-
-
     }
   mail()
-  window.location=this.href
+  //window.location=this.href
+  });
+  document.getElementById("send-and").addEventListener("click", function(event){
+  event.preventDefault()
+  function mail() {
+    var ts = "TEST SUCCESS";
+    document.getElementById('test').innerHTML = ts;
+    var name = document.getElementsByName('name').item(0).value;
+    var zipcode = document.getElementsByName('zipcode').item(0).value;
+    var subject = document.getElementsByName('subject').item(0).value;
+    var body = document.getElementsByName('body').item(0).value;
+    var emailraw = document.getElementsByName('emails');
+    var emails = ''
+    console.log(emailraw)
+    for (i = 0; i < emailraw.length; i++) {
+        if (emailraw[i].checked)
+            emails += "," + emailraw[i].value;
+    };
+    console.log(emailraw)
+    var ending = `%0D%0A%0D%0ARegards,%0D%0A${name}%0D%0AZipcode:${zipcode}`;
+    body+=ending;
+    body = body.replace(/\r?\n/g, '%0D%0A');
+    var str = `mailto:${emails}?subject=${subject}&body=${body}`;
+    var link = str.replace(" ","%20");
+
+    // var link = "end test done";
+    link=link.replace(/%0D%0A/g,"<br>");
+    document.getElementById('test').innerHTML = link;
+    document.getElementById('send').href = link;
+    }
+  mail()
+  //window.location=this.href
   });
 </script>
 </body>
+</html>
